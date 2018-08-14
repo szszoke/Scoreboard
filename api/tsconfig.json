@@ -8,11 +8,12 @@
     "baseUrl": "./",
     "paths": {
       "Common": ["../common"],
-      "Common/*": ["../common/*"]
+      "Common/*": ["../common/*"],
+      "Routes": ["src/routes"],
+      "Routes/*": ["src/routes/*"],
+      "Utils": ["src/utils"],
+      "Utils/*": ["src/utils/*"]
     }
   },
-  "exclude": [
-    "node_modules",
-    "*.spec.ts"
-  ]
+  "exclude": ["node_modules", "*.spec.ts"]
 }
