@@ -1,5 +1,5 @@
 import * as express from 'express';
-import { calculateScore } from 'Utils/calculate-score';
+import { calculateScore } from '@utils/calculate-score';
 
 const api = express.Router();
 

@@ -1,4 +1,4 @@
-import { IFrame } from 'Common/frame';
+import { IFrame } from '@common/frame';
 
 const isFrameStrike = (frame: IFrame): boolean => frame && frame.first === 10;
 const isFrameSpare = (frame: IFrame): boolean =>

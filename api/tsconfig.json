@@ -2,17 +2,19 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es2017",
-    "lib": ["es2017"],
+    "lib": ["es2017", "dom"],
     "sourceMap": true,
     "outDir": "bin",
     "baseUrl": "./",
     "paths": {
-      "Common": ["../common"],
-      "Common/*": ["../common/*"],
-      "Routes": ["src/routes"],
-      "Routes/*": ["src/routes/*"],
-      "Utils": ["src/utils"],
-      "Utils/*": ["src/utils/*"]
+      "@common": ["../common"],
+      "@common/*": ["../common/*"],
+      "@": ["src"],
+      "@/*": ["src/*"],
+      "@routes": ["src/routes"],
+      "@routes/*": ["src/routes/*"],
+      "@utils": ["src/utils"],
+      "@utils/*": ["src/utils/*"]
     }
   },
   "exclude": ["node_modules", "*.spec.ts"]
