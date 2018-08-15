@@ -1,0 +1,41 @@
+@import 'sass/_colors';
+@import 'sass/_breakpoints';
+
+:host {
+  display: grid;
+  justify-content: center;
+}
+
+.border-wrapper {
+  border: 1px solid $color-primary-dark;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.frames {
+  background-color: $color-primary-dark;
+  display: grid;
+  justify-content: center;
+  grid-column-gap: 1px;
+  grid-row-gap: 1px;
+
+  @include for-phone-only {
+    grid-template-columns: repeat(5, 60px);
+    grid-auto-rows: 80px;
+  }
+
+  @include for-tablet-portrait-up {
+    grid-template-columns: repeat(10, 58px);
+    grid-auto-rows: 87px;
+  }
+
+  @include for-tablet-landscape-up {
+    grid-template-columns: repeat(10, 75px);
+    grid-auto-rows: 109px;
+  }
+
+  @include for-desktop-up {
+    grid-template-columns: repeat(10, 110px);
+    grid-auto-rows: 158px;
+  }
+}

@@ -1,0 +1,8 @@
+<div class="border-wrapper">
+  <div class="frames">
+    <app-scoreboard-frame *ngFor="let frame of frames"
+                          [frame]="frame"
+                          [active]="frame.index === activeFrameIndex"
+                          [tenth]="frame.index === 9"></app-scoreboard-frame>
+  </div>
+</div>

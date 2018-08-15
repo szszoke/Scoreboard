@@ -1,0 +1,11 @@
+@import 'sass/_colors';
+
+header {
+  height: 50px;
+  background-color: $color-primary-dark;
+  color: $color-primary-light;
+  text-align: center;
+  line-height: 50px;
+  font-size: 2rem;
+  font-weight: bold;
+}

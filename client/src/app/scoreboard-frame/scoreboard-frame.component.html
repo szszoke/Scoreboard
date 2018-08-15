@@ -1,0 +1,7 @@
+<span class="frame-index"
+      [class.active]="active">{{frame.index + 1}}</span>
+<span class="first-roll">{{frame.first}}</span>
+<span class="second-roll">{{frame.second}}</span>
+<span *ngIf="tenth"
+      class="third-roll">{{frame.third}}</span>
+<span class="total-score">{{frame.score}}</span>

@@ -1,0 +1,14 @@
+<h2>
+  Select your score
+</h2>
+<div class="border-wrapper">
+  <div class="inputs">
+    <button *ngFor="let score of scores"
+            class="input"
+            [disabled]="!scoreboardService.isValidScore(score)"
+            (click)="onClick(score)">{{score}}</button>
+  </div>
+  <button class="input strike"
+          [disabled]="!scoreboardService.isValidScore(10)"
+          (click)="onClick(10)">10</button>
+</div>

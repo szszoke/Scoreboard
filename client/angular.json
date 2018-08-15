@@ -29,6 +29,11 @@
             "styles": [
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "./src"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -54,7 +59,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "scoreboard-client:build"
+            "browserTarget": "scoreboard-client:build",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
