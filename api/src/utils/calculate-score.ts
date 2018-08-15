@@ -15,7 +15,8 @@ const calculateFrameScore = (
   followingFrames: IFrame[],
   frameIndex: number,
 ): number => {
-  let score = getScore(currentFrame, 'first') + getScore(currentFrame, 'second');
+  let score =
+    getScore(currentFrame, 'first') + getScore(currentFrame, 'second');
 
   if (isFrameStrike(currentFrame)) {
     // strike!

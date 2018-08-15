@@ -1,6 +1,5 @@
 import * as supertest from 'supertest';
 import { Server } from 'http';
-import { expect } from 'chai';
 import 'mocha';
 import app from '@/app';
 import { ONE_STRIKE } from '@/utils/mocks';
