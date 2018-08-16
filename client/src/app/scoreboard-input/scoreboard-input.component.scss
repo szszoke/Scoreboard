@@ -22,8 +22,6 @@
   grid-column-gap: 1px;
   grid-row-gap: 1px;
 
-  user-select: none;
-
   @include for-phone-only {
     grid-template-columns: repeat(5, 60px);
     grid-auto-rows: 60px;
@@ -62,6 +60,7 @@
   border: none;
   outline: none;
   cursor: pointer;
+  user-select: none;
 
   &:disabled {
     background-color: $color-primary-light;
