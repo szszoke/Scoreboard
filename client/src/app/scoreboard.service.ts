@@ -5,7 +5,7 @@ import { ICalculateScoreResponse } from '@common/calculate-score-response';
 import { Observable, BehaviorSubject, Subject } from 'rxjs';
 
 export interface IFrameWithScore extends IFrame {
-  score: number | string;
+  score: number;
   index: number;
 }
 
@@ -104,11 +104,22 @@ export class ScoreboardService {
 
   private calculateScore(frameIndex: number): void {
     this.http
-      .post<ICalculateScoreResponse>('/api/score', this.frames, httpOptions)
+      .post<ICalculateScoreResponse>(
+        '/api/score',
+        this.frames.slice(0, frameIndex + 1),
+        httpOptions,
+      )
       .subscribe(data => {
         this.frameIndexSubject.next(this.frameIndex);
-        this.scores[frameIndex] = data.score;
-        this.totalScore = Math.max(data.score, this.totalScore);
+
+        // scores can only grow over time
+        // always use the higher scores
+        // to not depend on the order of requests
+        data.scores.forEach(
+          (score, index) =>
+            (this.scores[index] = Math.max(this.scores[index] || 0, score)),
+        );
+        this.totalScore = Math.max(data.totalScore, this.totalScore);
         this.totalScoreSubject.next(this.totalScore);
         this.updateFrames();
 
@@ -143,19 +154,9 @@ export class ScoreboardService {
 
   private constructFrame(index: number): IFrameWithScore {
     const frame = this.frames[index];
-    let score: number | string = this.scores[index];
-
-    if (frame && index < 9) {
-      if (frame.first === 10) {
-        score = 'X';
-      } else if (frame.first + frame.second === 10) {
-        score = '/';
-      }
-    }
-
     return {
       ...frame,
-      score,
+      score: this.scores[index],
       index,
     };
   }
