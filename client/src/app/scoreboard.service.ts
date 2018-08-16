@@ -74,6 +74,7 @@ export class ScoreboardService {
       this.rollIndex = 0;
       this.lastRoll = 0;
       this.calculateScore(this.frameIndex++);
+      this.frameIndexSubject.next(this.frameIndex);
     }
 
     this.updateFrames();
@@ -82,16 +83,14 @@ export class ScoreboardService {
   isValidScore(score: number): boolean {
     if (this.frameIndex < 9) {
       return score <= 10 - this.lastRoll;
-    } else if (this.frameIndex === 9) {
-      const frame = this.frames[this.frameIndex];
-      if (this.rollIndex < 2) {
-        return frame.first === 10 || score <= 10 - this.lastRoll;
-      } else {
-        return frame.first + frame.second === 10 || frame.first === 10;
-      }
     }
 
-    return false;
+    const frame = this.frames[this.frameIndex];
+    if (this.rollIndex < 2) {
+      return frame.first === 10 || score <= 10 - this.lastRoll;
+    } else {
+      return frame.first + frame.second === 10 || frame.first === 10;
+    }
   }
 
   newGame() {
@@ -110,8 +109,6 @@ export class ScoreboardService {
         httpOptions,
       )
       .subscribe(data => {
-        this.frameIndexSubject.next(this.frameIndex);
-
         // scores can only grow over time
         // always use the higher scores
         // to not depend on the order of requests

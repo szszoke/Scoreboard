@@ -393,3 +393,50 @@ export const FULL_GAME_NINTH_OPEN: ICalculateScoreTestCase = {
   ],
   scores: [30, 60, 90, 120, 150, 180, 206, 225, 234, 264],
 };
+
+export const FULL_GAME_ALL_STRIKES_LAST_TWO_OPEN: ICalculateScoreTestCase = {
+  frames: [
+    {
+      first: 10,
+      second: 0,
+    },
+    {
+      first: 10,
+      second: 0,
+    },
+    {
+      first: 10,
+      second: 0,
+    },
+    {
+      first: 10,
+      second: 0,
+    },
+    {
+      first: 10,
+      second: 0,
+    },
+    {
+      first: 10,
+      second: 0,
+    },
+    {
+      first: 10,
+      second: 0,
+    },
+    {
+      first: 10,
+      second: 0,
+    },
+    {
+      first: 10,
+      second: 0,
+    },
+    {
+      first: 4,
+      second: 5,
+      third: 0,
+    },
+  ],
+  scores: [30, 60, 90, 120, 150, 180, 210, 234, 253, 262],
+};
