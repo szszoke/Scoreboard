@@ -1,0 +1,21 @@
+version: '3.1'
+
+services:
+  api:
+    container_name: 'scoreboard_api'
+    command: 'node -r tsconfig-paths/register index.js'
+    environment:
+      - PORT=81
+    build:
+      context: .
+      dockerfile: ./api/Dockerfile
+
+  client:
+    container_name: 'scoreboard_client'
+    ports:
+      - 8080:80
+    depends_on:
+      - api
+    build:
+      context: .
+      dockerfile: ./client/Dockerfile
