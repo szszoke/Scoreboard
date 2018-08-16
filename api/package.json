@@ -11,7 +11,7 @@
     "test": "mocha --opts mocha.opts",
     "test-with-coverage": "nyc mocha --opts mocha.opts",
     "nodemon": "nodemon -r ts-node/register -r tsconfig-paths/register",
-    "start": "node bin/api/index.js"
+    "start": "node -r ts-node/register -r tsconfig-paths/register bin/api/index.js"
   },
   "devDependencies": {
     "@types/chai": "^4.1.4",
