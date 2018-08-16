@@ -11,11 +11,9 @@ export default new class {
     this.app.use('/api', api);
   };
 
-  listen = (port: number): Server => {
+  listen = (port: number, callback?: Function): Server => {
     this.init();
 
-    return this.app.listen(port, () => {
-      console.log('Listening on PORT', port);
-    });
+    return this.app.listen(port, callback);
   };
 }();
