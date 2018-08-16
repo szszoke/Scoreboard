@@ -6,6 +6,7 @@ tmp
 out-tsc
 bin
 
+
 # dependencies
 node_modules
 
@@ -28,7 +29,8 @@ node_modules
 # misc
 /.sass-cache
 /connect.lock
-/coverage
+coverage
+.nyc_output
 /libpeerconnection.log
 npm-debug.log
 yarn-error.log

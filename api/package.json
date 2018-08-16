@@ -9,6 +9,7 @@
     "watch": "tsc --watch",
     "build": "tsc",
     "test": "mocha --opts mocha.opts",
+    "test-with-coverage": "nyc mocha --opts mocha.opts",
     "nodemon": "nodemon -r ts-node/register -r tsconfig-paths/register",
     "start": "node bin/api/index.js"
   },
@@ -21,6 +22,8 @@
     "chai": "^4.1.2",
     "mocha": "^5.2.0",
     "nodemon": "^1.18.3",
+    "nyc": "^12.0.2",
+    "source-map-support": "^0.5.8",
     "supertest": "^3.1.0",
     "ts-node": "^7.0.1",
     "tsconfig-paths": "^3.5.0",
@@ -29,5 +32,19 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3"
+  },
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "exclude": [
+      "**/*.d.ts",
+      "**/*.spec.ts",
+      "bin"
+    ],
+    "reporter": [
+      "html"
+    ],
+    "all": true
   }
 }
