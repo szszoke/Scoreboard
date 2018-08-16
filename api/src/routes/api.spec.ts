@@ -2,7 +2,7 @@ import * as supertest from 'supertest';
 import { Server } from 'http';
 import 'mocha';
 import app from '@/app';
-import { ONE_STRIKE } from '@/utils/mocks';
+import { ONE_STRIKE } from '@common/mocks';
 import { expect } from 'chai';
 
 describe('api', () => {

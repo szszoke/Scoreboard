@@ -19,6 +19,7 @@ import {
   FULL_GAME_ALL_STRIKES,
   FULL_GAME_NINTH_SPARE,
   FULL_GAME_NINTH_OPEN,
+  FULL_GAME_ALL_STRIKES_LAST_TWO_OPEN,
 } from '@common/mocks';
 
 describe('calculateScore', () => {
@@ -127,6 +128,12 @@ describe('calculateScore', () => {
       const score = calculateScore(FULL_GAME_NINTH_OPEN.frames);
 
       expect(score).to.deep.equal(FULL_GAME_NINTH_OPEN.scores);
+    });
+
+    it('the last two is open', () => {
+      const score = calculateScore(FULL_GAME_ALL_STRIKES_LAST_TWO_OPEN.frames);
+
+      expect(score).to.deep.equal(FULL_GAME_ALL_STRIKES_LAST_TWO_OPEN.scores);
     });
   });
 });
