@@ -77,5 +77,10 @@ const calculateScoreImpl = (
   return [];
 };
 
+/**
+ * Calculates the score after each frame
+ * @param frames array of frames
+ * @returns an array of number representing the score after each frame
+ */
 export const calculateScore = (frames: IFrame[]): number[] =>
   calculateScoreImpl(frames, 0, 0);
