@@ -19,7 +19,7 @@ import {
   FULL_GAME_ALL_STRIKES,
   FULL_GAME_NINTH_SPARE,
   FULL_GAME_NINTH_OPEN,
-} from '@/utils/mocks';
+} from '@common/mocks';
 
 describe('calculateScore', () => {
   describe('strikes in row', () => {
