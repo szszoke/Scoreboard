@@ -1,14 +1,116 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Scoreboard</title>
   <base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <link rel="icon"
+        type="image/x-icon"
+        href="favicon.ico">
+  <style>
+    body {
+      background-color: #FFFCF9;
+    }
+
+    .loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .loading-text {
+      text-align: center;
+      color: #272D2D;
+      font-size: 1.5rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .lds-ellipsis {
+      display: inline-block;
+      position: relative;
+      width: 64px;
+      height: 64px;
+      zoom: 300%;
+    }
+
+    .lds-ellipsis div {
+      position: absolute;
+      top: 27px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #272D2D;
+      animation-timing-function: cubic-bezier(0, 1, 1, 0);
+    }
+
+    .lds-ellipsis div:nth-child(1) {
+      left: 6px;
+      animation: lds-ellipsis1 0.6s infinite;
+    }
+
+    .lds-ellipsis div:nth-child(2) {
+      left: 6px;
+      animation: lds-ellipsis2 0.6s infinite;
+    }
+
+    .lds-ellipsis div:nth-child(3) {
+      left: 26px;
+      animation: lds-ellipsis2 0.6s infinite;
+    }
+
+    .lds-ellipsis div:nth-child(4) {
+      left: 45px;
+      animation: lds-ellipsis3 0.6s infinite;
+    }
+
+    @keyframes lds-ellipsis1 {
+      0% {
+        transform: scale(0);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes lds-ellipsis3 {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(0);
+      }
+    }
+
+    @keyframes lds-ellipsis2 {
+      0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(19px, 0);
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <app-root></app-root>
+  <app-root>
+    <div class="loading">
+      <div class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="loading-text">
+        Loading...
+      </div>
+    </div>
+  </app-root>
 </body>
+
 </html>
