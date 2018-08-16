@@ -26,25 +26,25 @@ describe('calculateScore', () => {
     it('one', () => {
       const score = calculateScore(ONE_STRIKE.frames);
 
-      expect(score).to.equal(ONE_STRIKE.score);
+      expect(score).to.deep.equal(ONE_STRIKE.scores);
     });
 
     it('two', () => {
       const score = calculateScore(TWO_STRIKES.frames);
 
-      expect(score).to.equal(TWO_STRIKES.score);
+      expect(score).to.deep.equal(TWO_STRIKES.scores);
     });
 
     it('three', () => {
       const score = calculateScore(THREE_STRIKES.frames);
 
-      expect(score).to.equal(THREE_STRIKES.score);
+      expect(score).to.deep.equal(THREE_STRIKES.scores);
     });
 
     it('four', () => {
       const score = calculateScore(FOUR_STRIKES.frames);
 
-      expect(score).to.equal(FOUR_STRIKES.score);
+      expect(score).to.deep.equal(FOUR_STRIKES.scores);
     });
   });
 
@@ -52,81 +52,81 @@ describe('calculateScore', () => {
     it('one', () => {
       const score = calculateScore(ONE_SPARE.frames);
 
-      expect(score).to.equal(ONE_SPARE.score);
+      expect(score).to.deep.equal(ONE_SPARE.scores);
     });
 
     it('two', () => {
       const score = calculateScore(TWO_SPARES.frames);
 
-      expect(score).to.equal(TWO_SPARES.score);
+      expect(score).to.deep.equal(TWO_SPARES.scores);
     });
 
     it('three', () => {
       const score = calculateScore(THREE_SPARES.frames);
 
-      expect(score).to.equal(THREE_SPARES.score);
+      expect(score).to.deep.equal(THREE_SPARES.scores);
     });
 
     it('four', () => {
       const score = calculateScore(FOUR_SPARES.frames);
 
-      expect(score).to.equal(FOUR_SPARES.score);
+      expect(score).to.deep.equal(FOUR_SPARES.scores);
     });
   });
 
   it('a strike and a spare', () => {
     const score = calculateScore(STRIKE_AND_SPARE.frames);
 
-    expect(score).to.equal(STRIKE_AND_SPARE.score);
+    expect(score).to.deep.equal(STRIKE_AND_SPARE.scores);
   });
 
   it('a strike and an open', () => {
     const score = calculateScore(STRIKE_AND_OPEN.frames);
 
-    expect(score).to.equal(STRIKE_AND_OPEN.score);
+    expect(score).to.deep.equal(STRIKE_AND_OPEN.scores);
   });
 
   it('a spare and a strike', () => {
     const score = calculateScore(SPARE_AND_STRIKE.frames);
 
-    expect(score).to.equal(SPARE_AND_STRIKE.score);
+    expect(score).to.deep.equal(SPARE_AND_STRIKE.scores);
   });
 
   it('two spares in row', () => {
     const score = calculateScore(TWO_SPARES_IN_ROW.frames);
 
-    expect(score).to.equal(TWO_SPARES_IN_ROW.score);
+    expect(score).to.deep.equal(TWO_SPARES_IN_ROW.scores);
   });
 
   it('a spare and an open', () => {
     const score = calculateScore(SPARE_AND_OPEN.frames);
 
-    expect(score).to.equal(SPARE_AND_OPEN.score);
+    expect(score).to.deep.equal(SPARE_AND_OPEN.scores);
   });
 
   describe('full game', () => {
     it('all spares with bonus roll', () => {
       const score = calculateScore(FULL_GAME_ALL_SPARES.frames);
 
-      expect(score).to.equal(FULL_GAME_ALL_SPARES.score);
+      expect(score).to.deep.equal(FULL_GAME_ALL_SPARES.scores);
     });
 
     it('all strikes!', () => {
       const score = calculateScore(FULL_GAME_ALL_STRIKES.frames);
 
-      expect(score).to.equal(FULL_GAME_ALL_STRIKES.score);
+      expect(score).to.deep.equal(FULL_GAME_ALL_STRIKES.scores);
     });
 
     it('the ninth is spare', () => {
       const score = calculateScore(FULL_GAME_NINTH_SPARE.frames);
 
-      expect(score).to.equal(FULL_GAME_NINTH_SPARE.score);
+      expect(score).to.deep.equal(FULL_GAME_NINTH_SPARE.scores);
     });
 
     it('the ninth is open', () => {
       const score = calculateScore(FULL_GAME_NINTH_OPEN.frames);
 
-      expect(score).to.equal(FULL_GAME_NINTH_OPEN.score);
+      expect(score).to.deep.equal(FULL_GAME_NINTH_OPEN.scores);
     });
   });
 });

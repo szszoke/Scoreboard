@@ -55,22 +55,27 @@ const calculateFrameScore = (
   return score;
 };
 
-export const calculateScore = (
+const calculateScoreImpl = (
   frames: IFrame[],
-  frameIndex: number = 0,
-): number => {
+  frameIndex: number,
+  lastScore: number,
+): number[] => {
   if (frames && frames.length > 0 && frameIndex < 10) {
     const currentFrame = frames[0];
 
     const restOfTheFrames = frames.slice(1);
-    const currentScore = calculateFrameScore(
-      currentFrame,
-      restOfTheFrames,
-      frameIndex,
-    );
+    const currentScore =
+      lastScore +
+      calculateFrameScore(currentFrame, restOfTheFrames, frameIndex);
 
-    return currentScore + calculateScore(restOfTheFrames, ++frameIndex);
+    return [
+      currentScore,
+      ...calculateScoreImpl(restOfTheFrames, ++frameIndex, currentScore),
+    ];
   }
 
-  return 0;
+  return [];
 };
+
+export const calculateScore = (frames: IFrame[]): number[] =>
+  calculateScoreImpl(frames, 0, 0);

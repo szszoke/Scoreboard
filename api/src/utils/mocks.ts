@@ -2,7 +2,7 @@ import { IFrame } from '@common/frame';
 
 export interface ICalculateScoreTestCase {
   frames: IFrame[];
-  score: number;
+  scores: number[];
 }
 
 // Strikes
@@ -13,7 +13,7 @@ export const ONE_STRIKE: ICalculateScoreTestCase = {
       second: 0,
     },
   ],
-  score: 10,
+  scores: [10],
 };
 
 export const TWO_STRIKES: ICalculateScoreTestCase = {
@@ -27,7 +27,7 @@ export const TWO_STRIKES: ICalculateScoreTestCase = {
       second: 0,
     },
   ],
-  score: 30,
+  scores: [20, 30],
 };
 
 export const THREE_STRIKES: ICalculateScoreTestCase = {
@@ -45,7 +45,7 @@ export const THREE_STRIKES: ICalculateScoreTestCase = {
       second: 0,
     },
   ],
-  score: 60,
+  scores: [30, 50, 60],
 };
 
 export const FOUR_STRIKES: ICalculateScoreTestCase = {
@@ -67,7 +67,7 @@ export const FOUR_STRIKES: ICalculateScoreTestCase = {
       second: 0,
     },
   ],
-  score: 90,
+  scores: [30, 60, 80, 90],
 };
 
 // Spares
@@ -78,7 +78,7 @@ export const ONE_SPARE: ICalculateScoreTestCase = {
       second: 7,
     },
   ],
-  score: 10,
+  scores: [10],
 };
 
 export const TWO_SPARES: ICalculateScoreTestCase = {
@@ -92,7 +92,7 @@ export const TWO_SPARES: ICalculateScoreTestCase = {
       second: 8,
     },
   ],
-  score: 22,
+  scores: [12, 22],
 };
 
 export const THREE_SPARES: ICalculateScoreTestCase = {
@@ -110,7 +110,7 @@ export const THREE_SPARES: ICalculateScoreTestCase = {
       second: 1,
     },
   ],
-  score: 42,
+  scores: [13, 32, 42],
 };
 
 export const FOUR_SPARES: ICalculateScoreTestCase = {
@@ -132,7 +132,7 @@ export const FOUR_SPARES: ICalculateScoreTestCase = {
       second: 7,
     },
   ],
-  score: 49,
+  scores: [16, 26, 39, 49],
 };
 
 // Mixed
@@ -147,7 +147,7 @@ export const STRIKE_AND_SPARE: ICalculateScoreTestCase = {
       second: 6,
     },
   ],
-  score: 30,
+  scores: [20, 30],
 };
 
 export const STRIKE_AND_OPEN: ICalculateScoreTestCase = {
@@ -161,7 +161,7 @@ export const STRIKE_AND_OPEN: ICalculateScoreTestCase = {
       second: 1,
     },
   ],
-  score: 18,
+  scores: [14, 18],
 };
 
 export const SPARE_AND_STRIKE: ICalculateScoreTestCase = {
@@ -175,7 +175,7 @@ export const SPARE_AND_STRIKE: ICalculateScoreTestCase = {
       second: 0,
     },
   ],
-  score: 30,
+  scores: [20, 30],
 };
 
 export const TWO_SPARES_IN_ROW: ICalculateScoreTestCase = {
@@ -189,7 +189,7 @@ export const TWO_SPARES_IN_ROW: ICalculateScoreTestCase = {
       second: 9,
     },
   ],
-  score: 21,
+  scores: [11, 21],
 };
 
 export const SPARE_AND_OPEN: ICalculateScoreTestCase = {
@@ -203,7 +203,7 @@ export const SPARE_AND_OPEN: ICalculateScoreTestCase = {
       second: 1,
     },
   ],
-  score: 17,
+  scores: [13, 17],
 };
 
 export const FULL_GAME_ALL_SPARES: ICalculateScoreTestCase = {
@@ -250,7 +250,7 @@ export const FULL_GAME_ALL_SPARES: ICalculateScoreTestCase = {
       third: 6,
     },
   ],
-  score: 147,
+  scores: [13, 25, 35, 49, 64, 82, 101, 118, 131, 147],
 };
 
 export const FULL_GAME_ALL_STRIKES: ICalculateScoreTestCase = {
@@ -297,7 +297,7 @@ export const FULL_GAME_ALL_STRIKES: ICalculateScoreTestCase = {
       third: 10,
     },
   ],
-  score: 300,
+  scores: [30, 60, 90, 120, 150, 180, 210, 240, 270, 300],
 };
 
 export const FULL_GAME_NINTH_SPARE: ICalculateScoreTestCase = {
@@ -344,7 +344,7 @@ export const FULL_GAME_NINTH_SPARE: ICalculateScoreTestCase = {
       third: 10,
     },
   ],
-  score: 277,
+  scores: [30, 60, 90, 120, 150, 180, 207, 227, 247, 277],
 };
 
 export const FULL_GAME_NINTH_OPEN: ICalculateScoreTestCase = {
@@ -391,5 +391,5 @@ export const FULL_GAME_NINTH_OPEN: ICalculateScoreTestCase = {
       third: 10,
     },
   ],
-  score: 264,
+  scores: [30, 60, 90, 120, 150, 180, 206, 225, 234, 264],
 };
