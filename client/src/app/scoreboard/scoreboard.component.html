@@ -1,7 +1,8 @@
-<h1>Total score: {{scoreboardService.getTotalScore() | async}}</h1>
+<h1 class="total-score">Total score: {{scoreboardService.getTotalScore() | async}}</h1>
 <app-scoreboard-frames></app-scoreboard-frames>
 <app-scoreboard-input></app-scoreboard-input>
 <div class="button-wrapper">
   <button (click)="scoreboardService.newGame()">New game</button>
 </div>
-<h1 *ngIf="scoreboardService.getGameOver() | async">Game over!</h1>
+<h1 *ngIf="scoreboardService.getGameOver() | async"
+    class="game-over">Game over!</h1>

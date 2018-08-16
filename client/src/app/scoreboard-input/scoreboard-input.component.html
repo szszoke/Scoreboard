@@ -6,9 +6,9 @@
     <button *ngFor="let score of scores"
             class="input"
             [disabled]="!scoreboardService.isValidScore(score)"
-            (click)="onClick(score)">{{score}}</button>
+            (click)="scoreboardService.roll(score)">{{score}}</button>
   </div>
   <button class="input strike"
           [disabled]="!scoreboardService.isValidScore(10)"
-          (click)="onClick(10)">10</button>
+          (click)="scoreboardService.roll(10)">10</button>
 </div>
