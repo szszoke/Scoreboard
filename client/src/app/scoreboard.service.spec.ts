@@ -219,7 +219,7 @@ describe('ScoreboardService', () => {
     });
 
     describe('first roll is not strike', () => {
-      it('isValidScore should not allow every score', () => {
+      it('isValidScore should not allow any score', () => {
         FULL_GAME_ALL_STRIKES.frames
           .slice(0, 9)
           .forEach(frame => service.roll(frame.first));
@@ -310,6 +310,35 @@ describe('ScoreboardService', () => {
 
         service.getGameOver().subscribe(gameOver => {
           if (gameOver) {
+            done();
+          }
+        });
+
+        const reqs = testingController.match('/api/score');
+
+        reqs.forEach(req =>
+          req.flush({
+            scores: [],
+            totalScore: 0,
+          }),
+        );
+
+        testingController.verify();
+      });
+
+      it('isValidScore should not allow any score', done => {
+        FULL_GAME_ALL_STRIKES.frames
+          .slice(0, 9)
+          .forEach(frame => service.roll(frame.first));
+        service.roll(10);
+        service.roll(10);
+        service.roll(10);
+        service.getGameOver().subscribe(gameOver => {
+          if (gameOver) {
+            const scores = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+            expect(scores.filter(score => service.isValidScore(score))).toEqual(
+              [],
+            );
             done();
           }
         });

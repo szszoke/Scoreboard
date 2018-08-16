@@ -25,10 +25,11 @@ export class ScoreboardService {
   private readonly gameOverSubject: BehaviorSubject<boolean>;
   private frames: IFrame[] = [];
   private scores: { [key: number]: number };
-  private totalScore;
-  private frameIndex;
-  private rollIndex;
-  private lastRoll;
+  private totalScore: number;
+  private frameIndex: number;
+  private rollIndex: number;
+  private lastRoll: number;
+  private gameOver: boolean;
   private readonly rollKeys: (keyof IFrame)[] = ['first', 'second', 'third'];
 
   constructor(private http: HttpClient) {
@@ -81,6 +82,10 @@ export class ScoreboardService {
   }
 
   isValidScore(score: number): boolean {
+    if (this.gameOver) {
+      return false;
+    }
+
     if (this.frameIndex < 9) {
       return score <= 10 - this.lastRoll;
     }
@@ -98,7 +103,8 @@ export class ScoreboardService {
     this.updateFrames();
     this.totalScoreSubject.next(0);
     this.frameIndexSubject.next(0);
-    this.gameOverSubject.next(false);
+    this.gameOver = false;
+    this.gameOverSubject.next(this.gameOver);
   }
 
   private calculateScore(frameIndex: number): void {
@@ -121,7 +127,8 @@ export class ScoreboardService {
         this.updateFrames();
 
         if (frameIndex === 9) {
-          this.gameOverSubject.next(true);
+          this.gameOver = true;
+          this.gameOverSubject.next(this.gameOver);
         }
       });
   }
