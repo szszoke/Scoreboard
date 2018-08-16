@@ -1,3 +1,4 @@
 export interface ICalculateScoreResponse {
-  score: number;
+  scores: number[];
+  totalScore: number;
 }
