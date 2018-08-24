@@ -2,6 +2,8 @@
 
 Link to the assignment: https://github.com/ApsisInternational/Assignment
 
+![](https://github.com/szszoke/scoreboard/blob/master/demo.gif)
+
 ## System requirements
 
 - Node.js 10x runtime
